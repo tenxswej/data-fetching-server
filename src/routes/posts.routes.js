@@ -20,7 +20,8 @@ const postRoutes = route
    .get("/post-detail/:id", checkParam, getPostDetail)
    .get("/posts-filter/", checkParam, filterPosts)
    .post("/new-post", authenticate, checkBody, newPost)
-   .put("/edit-post", authenticate, checkBody, editPost)
+   .put("/edit-post-body", authenticate, checkBody, editPost)
+   .put("/edit-post-tag", authenticate, checkBody, editPost)
    .delete("/delete-post/:id", authenticate, checkParam, deletePost);
 
 module.exports = postRoutes;

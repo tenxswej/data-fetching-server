@@ -3,6 +3,7 @@ const {
    authenticate,
    checkBody,
    checkParam,
+   checkAlreadyLoggedIn,
 } = require("../middlewares/middlewares");
 
 const {
@@ -21,7 +22,7 @@ const userRoutes = route
    .get("/detail/:username", checkParam, getUserDetail)
    .get("/edit-user", authenticate, checkParam, editUser)
    .post("/register", checkBody, register)
-   .put("/login", authenticate, checkBody, login)
+   .post("/login", checkAlreadyLoggedIn, checkBody, login)
    .delete("/logout", authenticate, logout);
 
 module.exports = userRoutes;
